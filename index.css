@@ -120,6 +120,7 @@ body{
     margin-top: 30px;
     line-height: 25px;
     color:#4a4a4a;
+    padding-left: 20px;
 }
 .shop>p{
     color: grey;
@@ -127,7 +128,8 @@ body{
 
 .container{
     border:0px solid black;
-    width:100%;
+    width:95%;
+    margin: auto;
     height:700px;
     display: grid;
     margin-top: 10px;
@@ -266,15 +268,19 @@ td{
 .shop1{
     margin-top: 20px;
     color: #4a4a4a;
+    padding-left: 20px;
 }
 .best-seller{
     border: 0px solid red;
     height: 400px;
-    margin-top: 20px;
+    
+    width:95%;
+    margin:auto;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(1, 400px);
     gap:20px;
+    margin-top: 30px;
 }
 .best-seller>div{
     border:0px solid green;
@@ -399,3 +405,163 @@ color:#d11243;
     margin-top: 0px;
     margin-left: 5px;
     }
+    .best-seller1{
+        border: 0px solid red;
+    height: 400px;
+    width:95%;
+    margin:auto;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1, 400px);
+    gap:20px;
+    
+    }
+    .best-seller1>div{
+        border:0px solid green;
+        
+        border-radius: 10px;
+        line-height: 22px;
+    }
+    .best-seller1>div>div>img{
+        width:100%;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .shop2{
+        margin-top: 39px;
+        margin-bottom: -10px;
+        color: #4a4a4a;
+        height:auto;
+        padding-left: 20px;
+    }
+    .banner3{
+        border:0px solid red;
+        width:100%;
+        height: 350px;
+        margin-top: 60px;
+
+    }
+    .banner3>img{
+        width:100%;
+        height:100%;
+    }
+
+    .best-seller2{
+        border: 0px solid red;
+    height: auto;
+    width:95%;
+    margin:auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(1, auto);
+    gap:20px;
+    color: #4a4a4a
+    }
+    .best-seller2>div{
+        border:0px solid green;
+        
+        border-radius: 10px;
+        line-height: 22px;
+    }
+    .best-seller2>div>div>img{
+        width:100%;
+        height: 150px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .footer-header{
+border: 0px solid red;
+width:95%;
+height: auto;
+
+display: flex;
+margin: auto;
+margin-top: 60px;
+
+align-items: center;
+    }
+    .footer2{
+    border: 0px solid red;
+    width:95%;
+    margin: auto;
+    height:auto;
+    margin-top: 20px;
+    display: flex;
+    margin-bottom: 20px;
+
+    }
+    .footer2>div{
+        border: 0px solid green;
+        width:50%;
+        height:100%;
+        display: flex;
+        gap:60px
+
+    
+        }
+        .footer2>div:nth-child(1)>div:nth-child(2){
+            border: 0px solid green;
+            width:50%;
+            height:50px;
+            
+    
+        
+     }
+ .footer2 p{
+                font-size: 12px;
+                color:grey
+   }
+     .footer2>div:nth-child(1) img{
+    width:80%
+   }
+
+   .apple{
+    display: flex;
+   }
+   #head{
+    font-weight: bold;
+    color: black;
+   }
+   .next2{
+    display: flex;
+   }
+   .next2>div{
+    border:0px solid red;
+    width:35%;
+    height:auto;
+   }
+#image{
+    width:100%;
+}
+.disclaimer{
+    border:0px solid red;
+    width:95%;
+    margin: auto;;
+    height: auto;
+    margin-top: 10px;
+}
+.disclaimer>h5{
+    text-align: center;
+    color: #4A4A4A;
+}
+.disclaimer>h5>img{
+    width: 15px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 4px;
+}
+.disclaimer>p{
+    font-size: 13px;
+    color: #4A4A4A;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: Lato;
+    text-align: justify;
+    text-align: center;
+}
