@@ -151,7 +151,7 @@ body{
     height:30px;
 
 }
-.container>div>div>img{
+.container>div>div>a>img{
     width:100%;
     border-radius: 5px;
 
