@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style./index7.css" />
+    <link rel="stylesheet" href="./style./otp.css" />
 </head>
 <body>
     <div id="navbar1">
@@ -82,15 +82,19 @@
 
                <!-- header end -->
 
-               <select id="filter">
-                <option value="Pack size">Pack size</option>
-                <option value="Mini">Mini</option>
-                <option value="Regular">Regular</option>
+               <!-- <select id="filter">
+                <option value="All">All</option>
+                <option value="Plant Based Chick~n Seekh Kebab">Plant Based Chick~n Seekh Kebab</option>
+                <option value="Plant Based Mutt~n Seekh Kebab">Plant Based Mutt~n Seekh Kebab</option>
                 
-              </select>
-               <div class="main3">
-
-               </div>
+              </select> -->
+              <div class="direct">
+                <form>
+                    <label for="">Enter OTP </label><br />
+                    <input id="OTP" type="password" placeholder="" /><br />
+                    <input type="submit" />
+                </form>
+            </div>
 
                <!-- footer start -->
 
@@ -190,140 +194,25 @@
 </body>
 </html>
 <script>
-    let maindata1=[
- {
-    id:1,
-    img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/e2e18763-5810-3cf2-40a5-9d0b27e945b1/original/new_sausages-07.jpg",
-    des:"Chicken Sausage with Thyme & Cheese",
-    des1: "Mini",
-    des2: "450gms",
-    mrp:"339",
-    
- },
- {
-    id:2,
-    img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/ca0f08c6-2678-eb80-2758-4a2617739554/original/Frank---Paprika-_-Cheese-unCooked-new.jpg",
-    des:"Chicken Frankfurter With Paprika & Cheese",
-    des1: "Regular",
-    des2: "450gms",
-    mrp:"349",
-
- },
- {
-    id:3,
-    img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/36c60289-829d-830f-d4c7-c62675adb323/original/Frank---Chorizo-unCooked+new.jpg",
-    des:"Chicken Chorizo Frankfurter",
-    des1: "Mini",
-    des2: "450gms",
-    mrp:"549",
-
- },
- {
-    id:4,
-    img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/cc302bc5-5b42-69d4-0c10-f3822fe60235/original/new_sausages-05.jpg",
-    des:"Chicken Sausage with Pimento & Cheese",
-    des1: "Regular",
-    des2: "450gms",
-    mrp:"349",
-
- },
- {
-    id:5,
-    img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/f2d70127-3eb2-e667-d137-140dc240c0af/original/new_sausages-03.jpg",
-    des:"Chicken & Cranberry Sausage",
-    des1: "Mini",
-    des2: "450gms",
-    mrp:"299",
-
- },
- {
-    id:6,
-    img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/d35e8cfa-3e43-2df4-ec90-797c6c1e3d46/original/Peppery-Chicken-Salami-1.jpg",
-    des:"Peppery Chicken Salami| Ready to Eat",
-    des1: "Regular",
-    des2: "450gms",
-    mrp:"249",
-
- }
-    ]
-
-    let Category1=document.getElementById("filter");
-    let totalcount=JSON.parse(localStorage.getItem("count"))  || 0;
-
-    display(maindata1);
-    function display(res1)
-    {
-    document.querySelector(".main3").innerHTML=null;
-        res1.forEach(function(el){
-       
-    let card=document.createElement("div");
-
-    let image=document.createElement("img");
-     image.src=el.img_url;
-
-     let des=document.createElement("p");
-     des.innerText=el.des;
-
-     let des1=document.createElement("p");
-     des1.innerText=el.des1;
-
-     let des2=document.createElement("p");
-     des2.innerText=el.des2;
-
-     let mrp=document.createElement("p");
-     mrp.innerText="MRP:"+el.mrp;
-     
-
-     let btn=document.createElement("button");
-     btn.innerText="Add to cart";
-     btn.addEventListener("click", function(){
-       addtocart(el);
-
-     })
-
-     card.append(image,des,des1,des2,mrp,btn);
-     document.querySelector(".main3").append(card);
-
-
-     
-
-        }) 
-       
-    
-        Category1.addEventListener("change", function(){
-  if(Category1.value==="Pack size")
-  {
-    display(maindata1);
-    
-  }
-else{
-    let filterdata1=maindata1.filter(function(element){
-        return element.des1===Category1.value;
-    });
-    display(filterdata1);
-    
+    let form=document.querySelector("form");
+form.addEventListener("submit", getdata11)
+function getdata11(event)
+{
+    event.preventDefault();
+    let raj=Number(document.getElementById("OTP").value);
+if(raj==1234)
+{
+    alert("Payment Successful");
 }
 
-});
+}
 
 
+    
+// let cartitems=localStorage.getItem("count1");
+// document.querySelector("#span1").innerText=cartitems;
+let totalcount=JSON.parse(localStorage.getItem("count"))  || 0;
+document.querySelector("#span1").innerText=totalcount;
 
 
-        let arr=JSON.parse(localStorage.getItem("cart")) || [];
-        function addtocart(el)
-        {
-            totalcount++;
-            localStorage.setItem("count", totalcount);
-            arr.push(el);
-            localStorage.setItem("cart", JSON.stringify(arr));
-            window.location.reload();
-        }
-     
-        document.querySelector("#span1").innerText=totalcount;
-
-
-
-
-
-    }
 </script>

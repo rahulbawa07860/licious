@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./style./index.css" />
 
 </head>
 <body>
@@ -42,7 +42,9 @@
     </div>
     <div id="navbar2">
      <div>
-        <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+        <a href="index.html">
+            <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+        </a>
      </div>
     <div class="location">
         <div>
@@ -65,12 +67,16 @@
     <p>Categories</p>
 </div>
 <div >
-    <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
+    <a href="login.html">
+        <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
 <p>Login</p>
+    </a>
 </div>
 <div >
-    <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
-<p>Cart</p>
+    <a href="cart.html">
+        <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
+<p>Cart (<span id="span1">0</span>)</p>
+    </a>
 </div>
 
 
@@ -681,3 +687,12 @@
 
 </body>
 </html>
+<script>
+
+    
+    // let cartitems=localStorage.getItem("count1");
+    // document.querySelector("#span1").innerText=cartitems;
+    let totalcount=JSON.parse(localStorage.getItem("count"))  || 0;
+    document.querySelector("#span1").innerText=totalcount;
+    
+</script>
