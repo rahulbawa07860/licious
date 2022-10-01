@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./index10.css" />
+    <link rel="stylesheet" href="./style./index10.css" />
 </head>
 <body>
     <div id="navbar1">
@@ -41,7 +41,9 @@
             </div>
             <div id="navbar2">
                 <div>
-                   <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+                    <a href="index.html">
+                        <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+                    </a>
                 </div>
                <div class="location">
                    <div>
@@ -64,12 +66,16 @@
                <p>Categories</p>
            </div>
            <div >
-               <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
-           <p>Login</p>
+            <a href="login.html">
+                <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
+        <p>Login</p>
+            </a>
            </div>
            <div >
-               <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
-           <p>Cart</p>
+            <a href="cart.html">
+                <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
+        <p>Cart (<span id="span1">0</span>)</p>
+            </a>
            </div>
            
                </div>
@@ -191,7 +197,7 @@
     des:"Hyderabadi Mutton Biryani | Meat & Masala Mix",
     des1: "Bone-in",
     des2: "450gms",
-    mrp:"MRP: 339",
+    mrp:"339",
     
  },
  {
@@ -200,7 +206,7 @@
     des:"Hariyali Murgh Tikka | Ready in 8 Minutes",
     des1: "Boneless",
     des2: "450gms",
-    mrp:"MRP: 349",
+    mrp:"349",
 
  },
  {
@@ -209,7 +215,7 @@
     des:"Kolkata Chicken Biryani | Meat & Masala Mix",
     des1: "Bone-in",
     des2: "450gms",
-    mrp:"MRP: 549",
+    mrp:"549",
 
  },
  {
@@ -218,7 +224,7 @@
     des:"Angara Murgh Tikka | Ready In 8 Minutes",
     des1: "Boneless",
     des2: "450gms",
-    mrp:"MRP: 349",
+    mrp:"349",
 
  },
  {
@@ -227,7 +233,7 @@
     des:"Awadhi Chicken Biryani | Meat & Masala Mix",
     des1: "Bone-in",
     des2: "450gms",
-    mrp:"MRP: 299",
+    mrp:"299",
 
  },
  {
@@ -236,12 +242,13 @@
     des:"Assorted Tandoori Platter | Ready to Cook",
     des1: "Boneless",
     des2: "450gms",
-    mrp:"MRP: 249",
+    mrp:"249",
 
  }
     ]
 
     let Category1=document.getElementById("filter");
+    let totalcount=JSON.parse(localStorage.getItem("count"))  || 0;
 
     display(maindata1);
     function display(res1)
@@ -264,7 +271,7 @@
      des2.innerText=el.des2;
 
      let mrp=document.createElement("p");
-     mrp.innerText=el.mrp;
+     mrp.innerText="MRP:"+el.mrp;
      
 
      let btn=document.createElement("button");
@@ -282,6 +289,7 @@
 
         }) 
         
+    
         Category1.addEventListener("change", function(){
   if(Category1.value==="Cut Type")
   {
@@ -301,17 +309,20 @@ else{
 
 
 
-        let arr1=JSON.parse(localStorage.getItem("cart")) || [];
+        let arr=JSON.parse(localStorage.getItem("cart")) || [];
         function addtocart(el)
         {
+            totalcount++;
+            localStorage.setItem("count", totalcount);
             arr.push(el);
-            localStorage.setItem("cart", JSON.stringify(arr1));
+            localStorage.setItem("cart", JSON.stringify(arr));
+            window.location.reload();
         }
      
 
 
 
-
+        document.querySelector("#span1").innerText=totalcount;
 
 
     }

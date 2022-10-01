@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./index5.css" />
+    <link rel="stylesheet" href="./style./index5.css" />
 </head>
 <body>
     <div id="navbar1">
@@ -41,7 +41,9 @@
             </div>
             <div id="navbar2">
                 <div>
-                   <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+                    <a href="index.html">
+                        <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+                    </a>
                 </div>
                <div class="location">
                    <div>
@@ -64,12 +66,16 @@
                <p>Categories</p>
            </div>
            <div >
-               <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
-           <p>Login</p>
+            <a href="login.html">
+                <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
+        <p>Login</p>
+            </a>
            </div>
            <div >
-               <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
-           <p>Cart</p>
+            <a href="cart.html">
+                <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
+        <p>Cart (<span id="span1">0</span>)</p>
+            </a>
            </div>
            
                </div>
@@ -188,10 +194,10 @@
  {
     id:1,
     img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/ccf4dc1a-1ef3-62e1-18e3-7aa719861427/original/two.jpg",
-    des:"Fish Tikka (Mini) | Ready to Cook",
+    des:"Fish Tikka (Mini) | Ready to Cook  | Ready In 6 Mins",
     des1: "Fish",
     des2: "450gms",
-    mrp:"MRP: 339",
+    mrp:"339",
     
  },
  {
@@ -200,48 +206,49 @@
     des:"Goan Prawn Curry - (Medium Prawns) | Ready In 6 Mins",
     des1: "Prawns",
     des2: "450gms",
-    mrp:"MRP: 349",
+    mrp:"349",
 
  },
  {
     id:3,
     img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/561a7646-309d-b623-0c1d-908fecfa29da/original/rtc_july_6images-23.jpg",
-    des:"Fish Fingers | Ready to Cook",
+    des:"Fish Fingers | Ready to Cook  | Ready In 6 Mins",
     des1: "Fish",
     des2: "450gms",
-    mrp:"MRP: 549",
+    mrp:"549",
 
  },
  {
     id:4,
     img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/54a88df7-f669-140f-230c-92f1f1db07ff/original/Crispy-Prawns-_-Tagjpg.jpg",
-    des:"Crispy Prawns | Ready to Cook",
+    des:"Crispy Prawns | Ready to Cook  | Ready In 6 Mins",
     des1: "Prawns",
     des2: "450gms",
-    mrp:"MRP: 349",
+    mrp:"349",
 
  },
  {
     id:5,
     img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/8c1add24-1370-e120-1e27-fc64fb4efeb7/original/Amritsari-Fish-Ready_to_Cook.jpg",
-    des:"Achari Fish Tikka | Ready to Cook",
+    des:"Achari Fish Tikka | Ready to Cook  | Ready In 6 Mins",
     des1: "Fish",
     des2: "450gms",
-    mrp:"MRP: 299",
+    mrp:"299",
 
  },
  {
     id:6,
     img_url:"https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/bcbcfada-807a-9c4f-f296-b42993b5c535/original/Mediterranean-Prawns-Tag.jpg",
-    des:"Mediterranean Prawns | Ready in 8 Minutes",
+    des:"Mediterranean Prawns | Ready in 8 Minutes  | Ready In 6 Mins",
     des1: "Prawns",
     des2: "450gms",
-    mrp:"MRP: 249",
+    mrp:"249",
 
  }
     ]
 
     let Category1=document.getElementById("filter");
+    let totalcount=JSON.parse(localStorage.getItem("count"))  || 0;
 
     display(maindata1);
     function display(res1)
@@ -264,7 +271,7 @@
      des2.innerText=el.des2;
 
      let mrp=document.createElement("p");
-     mrp.innerText=el.mrp;
+     mrp.innerText="MRP:"+el.mrp;
      
 
      let btn=document.createElement("button");
@@ -281,6 +288,9 @@
      
 
         }) 
+
+        
+    
         
         Category1.addEventListener("change", function(){
   if(Category1.value==="Meat type")
@@ -301,16 +311,19 @@ else{
 
 
 
-        let arr1=JSON.parse(localStorage.getItem("cart")) || [];
+        let arr=JSON.parse(localStorage.getItem("cart")) || [];
         function addtocart(el)
         {
+            totalcount++;
+            localStorage.setItem("count", totalcount);
             arr.push(el);
-            localStorage.setItem("cart", JSON.stringify(arr1));
+            localStorage.setItem("cart", JSON.stringify(arr));
+            window.location.reload();
         }
      
 
 
-
+        document.querySelector("#span1").innerText=totalcount;
 
 
 

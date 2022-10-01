@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./index1.css" />
+    <link rel="stylesheet" href="./style./index1.css" />
 </head>
 <body>
     <div id="navbar1">
@@ -41,7 +41,9 @@
             </div>
             <div id="navbar2">
                 <div>
-                   <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+                    <a href="index.html">
+                        <img src="https://www.licious.in/img/rebranding/licious-logo.svg">
+                    </a>
                 </div>
                <div class="location">
                    <div>
@@ -64,12 +66,16 @@
                <p>Categories</p>
            </div>
            <div >
-               <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
-           <p>Login</p>
+            <a href="login.html">
+                <img src="https://m.licious.in/image/rebranding/png/profile-icon-new.png">
+        <p>Login</p>
+            </a>
            </div>
            <div >
-               <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
-           <p>Cart</p>
+            <a href="cart.html">
+                <img src="https://m.licious.in/image/rebranding/png/Cart_v2.png">
+        <p>Cart (<span id="span1">0</span>)</p>
+            </a>
            </div>
            
                </div>
@@ -191,7 +197,7 @@
     des:"Plant Based Chick~n Seekh Kebab",
     des1: "No chicken? No problem!",
     des2: "Pieces 4",
-    mrp:"MRP: 349",
+    mrp:"349",
     
  },
  {
@@ -200,12 +206,13 @@
     des:"Plant Based Mutt~n Seekh Kebab",
     des1: "Feel like mutton but can't?",
     des2: "Pieces 4",
-    mrp:"MRP: 349",
+    mrp:"349",
 
  }
     ]
 
     let Category=document.getElementById("filter");
+    let totalcount=JSON.parse(localStorage.getItem("count"))  || 0;
 
     display(maindata);
     function display(res)
@@ -228,7 +235,7 @@
      des2.innerText=el.des2;
 
      let mrp=document.createElement("p");
-     mrp.innerText=el.mrp;
+     mrp.innerText="MRP:"+el.mrp;
      
 
      let btn=document.createElement("button");
@@ -245,6 +252,9 @@
      
 
         }) 
+
+        
+    
         
         Category.addEventListener("change", function(){
   if(Category.value==="All")
@@ -268,10 +278,13 @@ else{
         let arr=JSON.parse(localStorage.getItem("cart")) || [];
         function addtocart(el)
         {
+            totalcount++;
+            localStorage.setItem("count", totalcount);
             arr.push(el);
             localStorage.setItem("cart", JSON.stringify(arr));
+            window.location.reload();
         }
-     
+        document.querySelector("#span1").innerText=totalcount;
 
 
 
